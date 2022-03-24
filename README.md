@@ -1,6 +1,8 @@
 # 3d_intersections
 
 Currently line-arc and spline-line intersections.
+Show's how to calculate 3d arc intersection by math.
+
 ![screen](https://user-images.githubusercontent.com/44880102/159904463-2d7fd199-490b-42b1-9535-6f558d9635ac.jpg)
 
 # Opencascade linux library installer, including image support :
