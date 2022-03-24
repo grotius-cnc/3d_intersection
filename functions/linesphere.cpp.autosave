@@ -1,0 +1,53 @@
+#include "linesphere.h"
+#include <RayIntersection.h>
+
+LineSphere::LineSphere(gp_Pnt p0, gp_Pnt p1,  gp_Pnt arc_p0, gp_Pnt arc_p1, gp_Pnt arc_cp, double radius)
+{
+    std::vector<mk::Vector3> hits;
+     std::vector<gp_Pnt> pvec;
+ 
+     //! First point of line.
+     mk::Vector3 rayOrigin(p0.X(), p0.Y(), p0.Z());
+     //! Second point on line.
+     mk::Vector3 rayDirection(p1.X(), p1.Y(), p1.Z());
+     //! I think this is optional todo.
+     rayDirection.Normalize(rayDirection);
+ 
+     mk::Vector3 sphereCenter(arc_cp.X(), arc_cp.Y(), arc_cp.Z());
+ 
+     bool result = mk::RaySphereIntersection(rayOrigin, rayDirection, sphereCenter, radius, hits);
+     if(result){
+         for(unsigned int i=0; i<hits.size(); i++){
+             //! std::cout<<"hit at i:"<<i<<" x:"<<hits.at(i).x<<" y:"<<hits.at(i).y<<" z:"<<hits.at(i).z<<std::endl;
+ 
+             gp_Pnt pi;
+             pi.SetX(hits.at(i).x);
+             pi.SetY(hits.at(i).y);
+             pi.SetX(hits.at(i).z);
+ 
+             bool on_line=0, on_arc=0;
+ 
+             //! Check if intersection point is on line.
+             double l1=sqrt(pow(p0.X()-pi.X(),2)+pow(p0.Y()-pi.Y(),2)+pow(p0.Z()-pi.Z(),2));
+             double l2=sqrt(pow(p1.X()-pi.X(),2)+pow(p1.Y()-pi.Y(),2)+pow(p1.Z()-pi.Z(),2));
+             double l3=sqrt(pow(p1.X()-p0.X(),2)+pow(p1.Y()-p0.Y(),2)+pow(p1.Z()-p0.Z(),2));
+             if(l3==l1+l2){
+                on_line=1;
+             }
+ 
+             //! Check if intersection point is on 3d arc.
+             //! line a: cp->pi
+             //! line b: arc_p0, arc_p1.
+             //! if shortest line a,b==0, intersect=ok.
+             gp_Pnt pa,pb;
+             if(lineline().LineLineIntersect(p0,p1,arc_p0,arc_p1,pa,pb)){
+                 on_arc=1;
+             }
+ 
+ 
+ 
+             pvec.push_back({hits.at(i).x,hits.at(i).y,hits.at(i).z});
+         }
+     }
+     return pvec;
+}

@@ -1,0 +1,12 @@
+#ifndef LINESPHERE_H
+#define LINESPHERE_H
+
+#include <gp_Pnt.hxx>
+
+class LineSphere
+{
+public:
+    LineSphere(gp_Pnt p0, gp_Pnt p1, gp_Pnt arc_p0, gp_Pnt arc_p1, gp_Pnt arc_cp, double radius);
+};
+
+#endif // LINESPHERE_H

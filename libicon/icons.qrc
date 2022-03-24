@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>zoom_plus.svg</file>
+        <file>zoom_min.svg</file>
+        <file>zoom_extend.svg</file>
+        <file>zoom-out.svg</file>
+        <file>zoom-in.svg</file>
+        <file>view-top.svg</file>
+        <file>view-right.svg</file>
+        <file>view-left.svg</file>
+        <file>view-iso.svg</file>
+        <file>view-front.svg</file>
+        <file>view-bottom.svg</file>
+        <file>view-back.svg</file>
+        <file>opinion-no.png</file>
+        <file>opinion-okay.png</file>
+    </qresource>
+</RCC>
