@@ -1,5 +1,8 @@
 # 3d_intersections
 
+Currently line-arc and spline-line intersections.
+![screen](https://user-images.githubusercontent.com/44880102/159904463-2d7fd199-490b-42b1-9535-6f558d9635ac.jpg)
+
 # Opencascade linux library installer, including image support :
 
 https://github.com/grotius-cnc/Linux-Pro/releases/download/1.0.0/opencascade.deb
