@@ -40,9 +40,6 @@ FORMS += \
     Tranceparancy.ui \
     mainwindow.ui
 
-# Occt widget
-LIBS += -L/home/user/OcctQtWidget/build-OcctQtLib-Desktop-Debug -lOcctQtLib
-
 # Opencascade
 INCLUDEPATH += /opt/opencascade/oce-upstream-V7_5_0beta/inc \
                /opt/opencascade/oce-upstream-V7_5_0beta/src
